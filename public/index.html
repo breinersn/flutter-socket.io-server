@@ -4,32 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server sockets</title>
+    <title>SocketServer</title>
 </head>
 
 <body>
-    <h1>Acceso denegado!</h1>
+    <h1>Acceso denegado</h1>
 
     <script src="socket.io/socket.io.js"></script>
+
     <script>
         var socket = io();
+
         socket.on('connect', function() {
-            console.log('Conectado con el servidor');
+            console.log('Conectado al servidor')
         });
 
         socket.on('disconnect', function() {
-            console.log('Perdimos conexión con el servidor');
+            console.log('Perdimos comunicaciÃ³n con el servidor');
         });
+
 
         socket.emit('mensaje', {
-            nombre: 'breiner',
-            apellidos: 'Suarez Navarro'
+            nombre: 'Fernando'
         });
 
-        socket.on('mensaje', (payload) => {
-            console.log('Escuchando', payload);
+        socket.on('mensaje', function(payload) {
+            console.log('Escuhando:', payload);
         });
     </script>
+
 </body>
 
 </html>

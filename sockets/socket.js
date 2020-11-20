@@ -1,17 +1,20 @@
 const { io } = require('../index');
 
-//mensaje por sockets
-io.on('connection', client => {
 
-    console.log('Cliente Conectado');
+// Mensajes de Sockets
+io.on('connection', client => {
+    console.log('Cliente conectado');
 
     client.on('disconnect', () => {
-        console.log('Cliente Desconectado');
+        console.log('Cliente desconectado');
     });
 
     client.on('mensaje', (payload) => {
-        console.log(payload);
+        console.log('Mensaje', payload);
 
-        io.emit('mensaje', { admin: 'Nuevo mensaje' }); //emitir mensaje a todos
+        io.emit('mensaje', { admin: 'Nuevo mensaje' });
+
     });
+
+
 });
