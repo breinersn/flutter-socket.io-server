@@ -20,16 +20,21 @@
         });
 
         socket.on('disconnect', function() {
-            console.log('Perdimos comunicaciÃ³n con el servidor');
+            console.log('Perdimos comunicacion con el servidor');
         });
 
 
-        socket.emit('mensaje', {
-            nombre: 'Fernando'
-        });
+        // socket.emit('mensaje', {
+        //     nombre: 'Breiner'
+        // });
 
-        socket.on('mensaje', function(payload) {
-            console.log('Escuhando:', payload);
+        // socket.on('mensaje', function(payload) {
+        //     console.log('Escuhando:', payload);
+        // });
+
+        socket.on('bandas-activas', function(bands) {
+            console.clear();
+            console.table(bands);
         });
     </script>
 
